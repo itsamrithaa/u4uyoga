@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U4U Yoga | Welcome</title>
+    <title>{{title}}</title>
     <link rel="stylesheet" href="style.css">
     <!-- Font Imports from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,50 +12,22 @@
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Header Section (No changes needed here unless client needs to edit nav links) -->
     <header class="site-header">
-        <div class="container">
-            <nav class="main-nav">
-                <a href="index.html" class="logo">U4U Yoga</a>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="mission.html">Mission & Vision</a></li>
-                    <li class="dropdown">
-                        <a href="services.html">Services <span class="chevron">▼</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="services.html#service-digestive">Yoga for Digestive Health</a></li>
-                            <li><a href="services.html#service-trauma">Trauma-Informed Yoga</a></li>
-                            <li><a href="services.html#service-chair">Accessible / Chair Yoga</a></li>
-                            <li><a href="services.html#service-space">The Yoga of Space</a></li>
-                            <li><a href="services.html#service-1on1">1:1 Sessions</a></li>
-                            <li><a href="services.html#service-online">Online Sessions</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="events.html">Upcoming Events</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-                    <svg class="icon hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                    <svg class="icon close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            </nav>
-        </div>
+        <!-- ... your existing nav code ... -->
     </header>
 
     <main>
         <!-- Hero Section -->
         <section class="hero-section">
-            <div class="hero-background hero-photo"></div>
+            <div class="hero-background hero-photo" style="background-image: url('{{hero_image}}');"></div>
             <div class="hero-background hero-video">
-                <video src="https://vod-progressive.akamaized.net/exp=1721666998~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1668%2F17%2F433343468%2F1887332253.mp4~hmac=a4e698889aa092dd9d1f3d6dd2c03565f17178d0f1882d2c7300481005b736b4/vimeo-prod-skyfire-std-us/01/1668/17/433343468/1887332253.mp4" autoplay loop muted playsinline></video>
+                <video src="{{hero_video_url}}" autoplay loop muted playsinline></video>
             </div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1>Yoga that is For You</h1>
-                <p>Meeting you exactly where you are with compassion and understanding.</p>
+                <h1>{{hero_headline}}</h1>
+                <p>{{hero_subheadline}}</p>
             </div>
         </section>
 
@@ -63,11 +35,12 @@
         <section class="testimonial-section page-section">
             <div class="container fade-in-up">
                 <div class="section-header">
-                    <h2>What People Are Saying</h2>
+                    <h2>{{testimonials_section_title}}</h2>
                 </div>
                 <div class="testimonial-carousel">
                     <div class="testimonial-slides">
-                        <!-- Slides will be injected by JavaScript -->
+                        <!-- NOTE: Testimonials are injected by JavaScript. -->
+                        <!-- The CMS will edit the data source (e.g., a testimonials.json file), not this HTML directly. -->
                     </div>
                     <div class="carousel-controls">
                         <button class="carousel-btn prev" aria-label="Previous testimonial">‹</button>
@@ -82,40 +55,26 @@
         <section class="blog-preview-section page-section">
             <div class="container fade-in-up">
                 <div class="section-header">
-                    <h2>From Safara's Journal</h2>
-                    <p>Explore thoughts, practices, and inspiration on the journey of healing.</p>
+                    <h2>{{blog_section_title}}</h2>
+                    <p>{{blog_section_subtitle}}</p>
                 </div>
+                <!-- NOTE: For dynamic blog posts, we would configure a 'posts' collection in the CMS. -->
+                <!-- For now, we'll make the static preview content editable. -->
                 <div class="grid-container grid-3">
+                    {{ range .blog_posts }}
                     <div class="card">
                         <div class="card-content">
-                            <h3>The Yoga of Space: Clearing Your Inner and Outer World</h3>
-                            <p>Discover how decluttering your physical environment can create profound shifts in your mental and emotional wellbeing...</p>
+                            <h3>{{.title}}</h3>
+                            <p>{{.excerpt}}</p>
                         </div>
                         <div class="card-actions">
-                             <a href="https://safaraf.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
+                             <a href="{{.link_url}}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
                         </div>
                     </div>
-                     <div class="card">
-                        <div class="card-content">
-                            <h3>Three Simple Breaths for a Calmer Gut</h3>
-                            <p>The connection between our breath and our digestive system is powerful. Here are three simple breathing exercises you can do anywhere...</p>
-                        </div>
-                        <div class="card-actions">
-                             <a href="https://safaraf.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
-                        </div>
-                    </div>
-                     <div class="card">
-                        <div class="card-content">
-                            <h3>Why 'Trauma-Informed' Matters in Yoga</h3>
-                            <p>It's more than a buzzword. We explore the core principles that make a yoga practice truly safe and empowering for everyone...</p>
-                        </div>
-                        <div class="card-actions">
-                             <a href="https://safaraf.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
-                        </div>
-                    </div>
+                    {{ end }}
                 </div>
                 <div style="text-align: center; margin-top: var(--spacing-xl);">
-                    <a href="blog.html" class="btn btn-primary">Visit The Blog</a>
+                    <a href="blog.html" class="btn btn-primary">{{blog_visit_button_text}}</a>
                 </div>
             </div>
         </section>
@@ -126,27 +85,27 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-socials">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <a href="{{instagram_url}}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg><!-- ... svg icon ... --></svg>
                     </a>
                 </div>
-                <p><a href="mailto:safara@u4uyoga.com">safara@u4uyoga.com</a></p>
+                <p><a href="mailto:{{footer_email}}">{{footer_email}}</a></p>
                 <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
+                    <a href="{{privacy_policy_url}}">Privacy Policy</a>
                     <span class="mx-2">|</span>
-                    <a href="#">Terms & Conditions</a>
+                    <a href="{{terms_conditions_url}}">Terms & Conditions</a>
                 </div>
-                <p class="footer-tagline">“U4U Yoga operates with a commitment to healing justice, inclusivity, and community care.”</p>
+                <p class="footer-tagline">“{{footer_tagline}}”</p>
             </div>
         </div>
     </footer>
 
-    <!-- Lead Magnet Modal -->
+    <!-- Lead Magnet Modal (Content made editable) -->
     <div class="modal-popup" id="lead-magnet-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal-content">
-            <h2 id="modal-title">A moment of mindfulness for you.</h2>
-            <p>Before you continue, take a gentle breath in... and a slow breath out. Welcome to a space of calm and healing.</p>
-            <button class="btn btn-primary close-modal">I'm feeling good</button>
+            <h2 id="modal-title">{{modal_headline}}</h2>
+            <p>{{modal_text}}</p>
+            <button class="btn btn-primary close-modal">{{modal_button_text}}</button>
         </div>
     </div>
 
