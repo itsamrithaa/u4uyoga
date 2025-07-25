@@ -1,7 +1,3 @@
-Initial commit
-70eb856
-index.html
-@@ -0,0 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,24 +18,16 @@ index.html
             <nav class="main-nav">
                 <a href="index.html" class="logo">U4U Yoga</a>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="mission.html">Mission & Vision</a></li>
-                    <li class="dropdown">
+                    <li class="editable"><a href="index.html" class="active">Home</a></li>
+                    <li class="editable"><a href="about.html">About Us</a></li>
+                    <li class="editable"><a href="mission.html">Mission & Vision</a></li>
+                    <li class="editable">
                         <a href="services.html">Services <span class="chevron">▼</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="services.html#service-digestive">Yoga for Digestive Health</a></li>
-                            <li><a href="services.html#service-trauma">Trauma-Informed Yoga</a></li>
-                            <li><a href="services.html#service-chair">Accessible / Chair Yoga</a></li>
-                            <li><a href="services.html#service-space">The Yoga of Space</a></li>
-                            <li><a href="services.html#service-1on1">1:1 Sessions</a></li>
-                            <li><a href="services.html#service-online">Online Sessions</a></li>
-                        </ul>
                     </li>
-                    <li><a href="events.html">Upcoming Events</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li class="editable"><a href="events.html">Upcoming Events</a></li>
+                    <li class="editable"><a href="blog.html">Blog</a></li>
+                    <li class="editable"><a href="faq.html">FAQ</a></li>
+                    <li class="editable"><a href="contact.html">Contact Us</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" aria-label="Toggle Menu">
                     <svg class="icon hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -57,9 +45,10 @@ index.html
                 <video src="https://vod-progressive.akamaized.net/exp=1721666998~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1668%2F17%2F433343468%2F1887332253.mp4~hmac=a4e698889aa092dd9d1f3d6dd2c03565f17178d0f1882d2c7300481005b736b4/vimeo-prod-skyfire-std-us/01/1668/17/433343468/1887332253.mp4" autoplay loop muted playsinline></video>
             </div>
             <div class="hero-overlay"></div>
+            <!-- New Hero Content -->
             <div class="hero-content">
-                <h1>Yoga that is For You</h1>
-                <p>Meeting you exactly where you are with compassion and understanding.</p>
+                <h1>Yoga That Meets You <span class="highlight-text">Exactly Where You Are</span></h1>
+                <p>Trauma-informed, inclusive healing practices that honor your journey and nurture your whole being.</p>
             </div>
         </section>
 
@@ -67,7 +56,7 @@ index.html
         <section class="testimonial-section page-section">
             <div class="container fade-in-up">
                 <div class="section-header">
-                    <h2>What People Are Saying</h2>
+                    <h2 class="editable">What People Are Saying</h2>
                 </div>
                 <div class="testimonial-carousel">
                     <div class="testimonial-slides">
@@ -82,79 +71,163 @@ index.html
             </div>
         </section>
 
-        <!-- Blog Preview Section -->
-        <section class="blog-preview-section page-section">
-            <div class="container fade-in-up">
-                <div class="section-header">
-                    <h2>From Safara's Journal</h2>
-                    <p>Explore thoughts, practices, and inspiration on the journey of healing.</p>
+       <!-- Blog Preview Section - RESTORED -->
+<section class="blog-preview-section page-section">
+    <div class="container fade-in-up">
+        <div class="section-header">
+            <h2>From Safara's Journal</h2>
+            <p>Explore thoughts, practices, and inspiration on the journey of healing.</p>
+        </div>
+        
+        <div class="grid-container grid-3">
+            <!-- Blog Post 1 -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>Summer Yang Energy: Healing Tips</h3>
+                    <p class="blog-meta">Posted By safara | June 2, 2019</p>
+                    <p>Good day Health Trekkers, As we enter this new month of June, the air, temperatures, sounds and landscapes are changing...</p>
                 </div>
-                <div class="grid-container grid-3">
-                    <div class="card">
-                        <div class="card-content">
-                            <h3>The Yoga of Space: Clearing Your Inner and Outer World</h3>
-                            <p>Discover how decluttering your physical environment can create profound shifts in your mental and emotional wellbeing...</p>
-                        </div>
-                        <div class="card-actions">
-                             <a href="https://safaraf.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
-                        </div>
-                    </div>
-                     <div class="card">
-                        <div class="card-content">
-                            <h3>Three Simple Breaths for a Calmer Gut</h3>
-                            <p>The connection between our breath and our digestive system is powerful. Here are three simple breathing exercises you can do anywhere...</p>
-                        </div>
-                        <div class="card-actions">
-                             <a href="https://safaraf.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
-                        </div>
-                    </div>
-                     <div class="card">
-                        <div class="card-content">
-                            <h3>Why 'Trauma-Informed' Matters in Yoga</h3>
-                            <p>It's more than a buzzword. We explore the core principles that make a yoga practice truly safe and empowering for everyone...</p>
-                        </div>
-                        <div class="card-actions">
-                             <a href="https://safaraf.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: var(--spacing-xl);">
-                    <a href="blog.html" class="btn btn-primary">Visit The Blog</a>
+                <div class="card-actions">
+                     <a href="https://safaraf.com/?p=2488" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
                 </div>
             </div>
-        </section>
+            <!-- Blog Post 2 -->
+             <div class="card">
+                <div class="card-content">
+                    <h3>Foods for Grounding Energy: Winter</h3>
+                    <p class="blog-meta">Posted By safara | March 3, 2019</p>
+                    <p>Good day Health Trekkers, We are well into the season of winters cold air and snowy days. With this comes...</p>
+                </div>
+                <div class="card-actions">
+                     <a href="https://safaraf.com/?p=2209" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Post 3 -->
+             <div class="card">
+                <div class="card-content">
+                    <h3>Resource Sharing for Healing</h3>
+                    <p class="blog-meta">Posted By safara | December 2, 2018</p>
+                    <p>Hi Health Trekkers, I am writing to you sharing a few resources that I’ve been turning to at this time to...</p>
+                </div>
+                <div class="card-actions">
+                     <a href="https://safaraf.com/?p=2364" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--spacing-xl);">
+            <a href="blog.html" class="btn btn-primary">Visit The Blog</a>
+        </div>
+    </div>
+</section>
     </main>
 
-    <!-- Footer Section -->
+           <!-- Footer Section -->
     <footer class="site-footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-socials">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    </a>
+            <div class="footer-grid">
+                <!-- Column 1: About U4U Yoga -->
+                <div class="footer-column footer-column-about">
+                    <h3>U4U Yoga</h3>
+                    <p>Trauma-informed, inclusive healing practices that honor your journey and nurture your whole being. Yoga for you, exactly as you are.</p>
+                    <div class="footer-socials">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/u4u-yoga/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="mailto:u4uyoga@gmail.com" aria-label="Email">
+                             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                        <a href="tel:347-280-6111" aria-label="Phone">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </a>
+                    </div>
                 </div>
-                <p><a href="mailto:safara@u4uyoga.com">safara@u4uyoga.com</a></p>
-                <div class="footer-links">
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column footer-column-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="mission.html">Mission & Vision</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div class="footer-column footer-column-contact">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <a href="mailto:u4uyoga@gmail.com">u4uyoga@gmail.com</a></li>
+                        <li><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <a href="tel:347-280-6111">(347) 280-6111</a></li>
+                        <li><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> <span>Northampton, MA & surrounding areas</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                 <div class="footer-tagline">
+                    <p>U4U Yoga operates with a commitment to healing justice, inclusivity, and community care.</p>
+                </div>
+                <div class="footer-legal">
                     <a href="#">Privacy Policy</a>
-                    <span class="mx-2">|</span>
                     <a href="#">Terms & Conditions</a>
                 </div>
-                <p class="footer-tagline">“U4U Yoga operates with a commitment to healing justice, inclusivity, and community care.”</p>
+            </div>
+             <div class="footer-copyright">
+                <p>© 2024 U4U Yoga. All rights reserved. Made with ❤️ for healing and community.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Lead Magnet Modal -->
-    <div class="modal-popup" id="lead-magnet-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-content">
-            <h2 id="modal-title">A moment of mindfulness for you.</h2>
-            <p>Before you continue, take a gentle breath in... and a slow breath out. Welcome to a space of calm and healing.</p>
+    <!-- Lead Magnet Modal - UPDATED -->
+<div class="modal-popup" id="lead-magnet-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+        <h2 id="modal-title">Hello, beautiful soul.</h2>
+        <p>How are you feeling in this moment?</p>
+        <!-- NEW: Button layout -->
+        <div class="modal-buttons">
             <button class="btn btn-primary close-modal">I'm feeling good</button>
+            <button class="btn btn-secondary close-modal">Maybe later</button>
         </div>
     </div>
+</div>
 
     <!-- JavaScript File -->
     <script src="script.js"></script>
+    <script type="module">
+        // --- This is the new, important part ---
+        // It imports the Tina Dev UI, which creates the pencil icon
+        import { TinaDevUI } from '/tina/dev-ui.js'
+      
+        document.addEventListener('DOMContentLoaded', (event) => {
+          // This makes sure the page is fully loaded before we do anything
+          
+          // Mount the Tina UI
+          const tina = new TinaDevUI()
+          tina.mount()
+      
+          // Now, fetch your content
+          fetch('/content/home.json')
+            .then(response => response.json())
+            .then(data => {
+              if (data.hero_headline) {
+                document.getElementById('hero_headline').textContent = data.hero_headline;
+              }
+              if (data.hero_subheadline) {
+                document.getElementById('hero_subheadline').textContent = data.hero_subheadline;
+              }
+            })
+            .catch(error => console.error('Error fetching content:', error));
+        });
+      </script>
 </body>
 </html>

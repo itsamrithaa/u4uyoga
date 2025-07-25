@@ -10,46 +10,45 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // --- Hero Section Video Transition (Homepage only) ---
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        const heroPhoto = heroSection.querySelector('.hero-photo');
-        const heroVideo = heroSection.querySelector('.hero-video');
-        if (heroPhoto && heroVideo) {
-            setTimeout(() => {
-                heroPhoto.style.opacity = '0';
-                heroVideo.style.opacity = '1';
-            }, 5000); // 5-second delay before video fades in
+    // --- Lead Magnet Modal (Homepage only) - UPDATED ---
+const leadMagnetModal = document.getElementById('lead-magnet-modal');
+if (leadMagnetModal) {
+    const closeModalButtons = leadMagnetModal.querySelectorAll('.close-modal');
+    
+    // Check if the user has EVER closed the modal before
+    const modalAlreadyShown = localStorage.getItem('u4uModalClosed');
+
+    const showModal = () => {
+        // Only show if it has NEVER been closed
+        if (!modalAlreadyShown) {
+            leadMagnetModal.classList.add('show');
         }
-    }
+    };
 
-    // --- Lead Magnet Modal (Homepage only) ---
-    const leadMagnetModal = document.getElementById('lead-magnet-modal');
-    if (leadMagnetModal) {
-        const closeModalButton = leadMagnetModal.querySelector('.close-modal');
-        
-        const showModal = () => {
-            if (!sessionStorage.getItem('u4uModalShown')) {
-                leadMagnetModal.classList.add('show');
-                sessionStorage.setItem('u4uModalShown', 'true');
-            }
-        };
+    const closeModal = () => {
+        // When closing, set the permanent flag in localStorage
+        localStorage.setItem('u4uModalClosed', 'true');
+        leadMagnetModal.classList.remove('show');
+    };
 
-        const closeModal = () => {
-            leadMagnetModal.classList.remove('show');
-        };
+    // Show modal after a delay
+    setTimeout(showModal, 5000); // 5-second delay
 
-        // Show modal after a delay
-        setTimeout(showModal, 8000); // 8-second delay
+    // Add event listeners to BOTH close buttons
+    closeModalButtons.forEach(button => {
+        button.addEventListener('click', closeModal);
+    });
 
-        // Close modal events
-        closeModalButton.addEventListener('click', closeModal);
-        leadMagnetModal.addEventListener('click', (e) => {
-            if (e.target === leadMagnetModal) {
-                closeModal();
-            }
-        });
-    }
+    // Also allow closing by clicking the background
+    leadMagnetModal.addEventListener('click', (e) => {
+        if (e.target === leadMagnetModal) {
+            closeModal();
+        }
+    });
+}
+
+// And finally, we need a small CSS addition for the new buttons.
+// Please add this small block to the END of your style.css file.
 
     // --- Testimonial Data ---
     const testimonials = [
@@ -146,30 +145,35 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    // --- FAQ Accordion ---
-    const faqItems = document.querySelectorAll('.faq-item');
-    if (faqItems) {
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
+    // --- FAQ Accordion - CORRECTED ---
+const faqCards = document.querySelectorAll('.faq-card');
+if (faqCards) {
+    faqCards.forEach(card => {
+        const question = card.querySelector('.faq-question');
+        const answer = card.querySelector('.faq-answer');
 
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
+        question.addEventListener('click', () => {
+            const isActive = card.classList.contains('active');
 
-                // Close all other items for a cleaner accordion effect
-                faqItems.forEach(i => {
-                    i.classList.remove('active');
-                    i.querySelector('.faq-answer').style.maxHeight = null;
-                });
-                
-                // If the clicked item wasn't already active, open it
-                if (!isActive) {
-                    item.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
+            // First, close all other cards
+            faqCards.forEach(otherCard => {
+                if (otherCard !== card) {
+                    otherCard.classList.remove('active');
+                    otherCard.querySelector('.faq-answer').style.maxHeight = null;
                 }
             });
+
+            // Then, toggle the clicked card
+            if (!isActive) {
+                card.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                card.classList.remove('active');
+                answer.style.maxHeight = null;
+            }
         });
-    }
+    });
+}
 
     // --- Fade-in Animations on Scroll ---
     const fadeUpElements = document.querySelectorAll('.fade-in-up');

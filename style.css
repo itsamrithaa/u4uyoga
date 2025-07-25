@@ -205,7 +205,7 @@ Header & Navigation
 .mobile-menu-toggle .close-icon { display: none; }
 
 /* ---
-Hero Section (Homepage)
+Hero Section (Homepage) - UPDATED
 --- */
 .hero-section {
     position: relative;
@@ -225,43 +225,43 @@ Hero Section (Homepage)
     width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
-    transition: opacity 1.5s ease-in-out;
+    /* NEW background image */
+    background-image: url('https://images.unsplash.com/photo-1542662565-7e4b66bae529?auto=format&fit=crop&w=1920&q=80');
 }
-.hero-photo {
-    background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1920&q=80');
-    opacity: 1;
-}
-.hero-video {
-    opacity: 0;
-}
-.hero-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
+/* We are removing the video for this design */
+.hero-video { display: none; }
 
 .hero-overlay {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 100%);
+    background: rgba(0,0,0,0.3);
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 900px;
     animation: fadeInDown 1s ease-out;
 }
 .hero-content h1 {
     color: white;
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(3rem, 7vw, 5.5rem);
     font-weight: 700;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+}
+/* NEW style for the highlighted text */
+.hero-content .highlight-text {
+    color: #FADADD; /* A soft pink to match the image */
+    font-weight: 400; /* Lighter font weight for contrast */
 }
 .hero-content p {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    max-width: 700px;
+    margin: 0 auto;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
@@ -360,7 +360,9 @@ Testimonial Carousel (About Page)
 --- */
 .testimonial-section {
     background-color: var(--color-surface);
+    padding: var(--spacing-xxl) 0; /* Ensures consistent vertical space */
 }
+
 .testimonial-carousel {
     position: relative;
     max-width: 800px;
@@ -547,16 +549,226 @@ Generic Content & Cards
     margin-top: var(--spacing-sm);
 }
 
-/* --- Blog Page --- */
+/* ---
+Blog Preview Section - RESTORED TO ORIGINAL
+--- */
+.blog-preview-section {
+    background-color: var(--color-surface); /* The original clean white background */
+}
+
+/* This targets the blog cards specifically */
+.blog-preview-section .card {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Ensure text is left-aligned */
+}
+.blog-preview-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.blog-preview-section .card-content {
+    flex-grow: 1; /* Pushes button to the bottom */
+}
+
+.blog-preview-section .card-actions {
+    margin-top: auto; /* Aligns button to the bottom */
+}
+
+.blog-meta {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-text-subtle);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ---
+FAQ - UPDATED
+--- */
+.faq-section {
+    background-color: var(--color-bg); /* Match the new design background */
+}
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md); /* Space between cards */
+}
+.faq-card {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease;
+}
+.faq-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: var(--spacing-lg);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chevron-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+.faq-card.active .chevron-icon {
+    transform: rotate(180deg);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    padding: 0 var(--spacing-lg);
+}
+.faq-answer p {
+    padding-bottom: var(--spacing-lg);
+    color: var(--color-text-subtle);
+    margin: 0;
+}/* ---
+Contact Page Layout - Definitive Fix
+--- */
+.contact-grid-new {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+}
+
+@media (min-width: 992px) {
+    .contact-grid-new {
+        /* Defines the two columns and their alignment */
+        grid-template-columns: 1fr 1.5fr;
+        align-items: start; /* THIS IS THE KEY ALIGNMENT RULE */
+    }
+}
+
+/* This targets the "Send a Message" card */
+.send-message-form {
+    background-color: var(--color-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    height: 100%; /* Ensures it takes up the full grid cell height */
+}
+
+/* This is the most important new rule */
+.connect-with-us {
+    /* This adds matching top padding to the left column, forcing the titles to align perfectly. */
+    padding-top: var(--spacing-xl);
+}
+
+/* This rule forces BOTH headings to have no top margin */
+.connect-with-us h2,
+.send-message-form h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
+}
+
+
+/* --- Styles for content inside the columns --- */
+
+.connect-with-us ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+.connect-with-us li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+}
+.connect-with-us strong {
+    display: block;
+    color: var(--color-primary-dark);
+}
+.connect-with-us a, .connect-with-us span {
+    color: var(--color-text-subtle);
+    font-size: 0.95rem;
+}
+.contact-icon-bg {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-icon-bg svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--color-primary);
+    fill: none;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+.form-control {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: none;
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border: 1px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-accent);
+}
+.form-note {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: var(--spacing-lg);
+    color: var(--color-text-subtle);
+}
+
+/* ---
+Blog Page (blog.html) - DEFINITIVE OVERHAUL
+--- */
+#blog .page-section, /* Target the section only on the blog page if needed */
+.blog-embed-container {
+    padding-bottom: 0; /* Remove extra padding below the iframe */
+}
+
+/* This is the new, simple, and correct container style */
 .blog-embed-container {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 80vh; /* Default height */
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-lg);
-    border: 4px solid white;
+    /* This creates a 4:3 aspect ratio, but with a minimum height */
+    padding-top: 75%; 
+    min-height: 80vh; /* Ensures it's tall enough on all screens */
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* A soft, modern shadow */
 }
+
+/* This ensures the iframe fills the container perfectly */
 .blog-embed-container iframe {
     position: absolute;
     top: 0;
@@ -565,169 +777,171 @@ Generic Content & Cards
     height: 100%;
     border: 0;
 }
-.blog-preview-section {
-    background-color: var(--color-surface);
-}
 
-/* --- FAQ Page --- */
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-.faq-item {
-    border-bottom: 1px solid var(--color-accent);
-}
-.faq-question {
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: left;
-    padding: var(--spacing-lg) 0;
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
+/* This styles the link in the header to match the image */
+.section-header a {
     font-weight: 600;
-    color: var(--color-primary-dark);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
 }
-.faq-question::after {
-    content: '+';
-    font-size: 1.75rem;
-    font-weight: 300;
-    transition: transform 0.3s ease;
-}
-.faq-item.active .faq-question::after {
-    transform: rotate(45deg);
-}
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
-}
-.faq-answer p {
-    padding-bottom: var(--spacing-lg);
-    color: var(--color-text-subtle);
-}
-
-/* --- Contact Page --- */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-}
-@media (min-width: 992px) {
-    .contact-grid {
-        grid-template-columns: 2fr 1fr;
-    }
-}
-.contact-form .form-group {
-    margin-bottom: var(--spacing-lg);
-}
-.contact-form label {
-    display: block;
-    margin-bottom: var(--spacing-sm);
-    font-weight: 600;
-}
-.contact-form .form-control {
-    width: 100%;
-    padding: var(--spacing-md);
-    border: 1px solid var(--color-accent);
-    border-radius: var(--border-radius);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-.contact-form .form-control:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px var(--color-accent);
-}
-.contact-info-card {
-    text-align: center;
-    padding: var(--spacing-xl);
-}
-.contact-info-card h3 {
-    margin-bottom: var(--spacing-md);
-}
-.social-icon {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    color: var(--color-primary);
-    transition: transform 0.3s ease;
-}
-.social-icon:hover {
-    transform: scale(1.1);
+.section-header a:hover {
     color: var(--color-primary-dark);
 }
 
 /* ---
-Footer
+Definitive Footer CSS (Final Version)
 --- */
 .site-footer {
     background-color: var(--color-primary-dark);
-    color: rgba(244, 227, 220, 0.9); /* Use a slightly transparent base color for text */
-    padding: var(--spacing-xl) var(--spacing-lg);
-    margin-top: var(--spacing-xl);
+    color: rgba(244, 227, 220, 0.8); /* Base text color with slight transparency */
+    padding: var(--spacing-xl) 0;
+    margin-top: var(--spacing-xxl);
+    font-size: 0.95rem;
 }
 
-.footer-content {
+.footer-grid {
+    display: grid;
+    /* Defines the 3 columns with the first being largest */
+    grid-template-columns: 2fr 1fr 1.5fr; 
+    gap: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    margin: 0 var(--spacing-lg);
+}
+
+.footer-column h3 {
+    font-family: var(--font-heading);
+    color: var(--color-surface);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+}
+
+.footer-column p {
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Column 1: Circular Social Icons */
+.footer-socials {
+    display: flex;
+    gap: var(--spacing-md);
+}
+.footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(244, 227, 220, 0.3);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.footer-socials a:hover {
+    background-color: rgba(244, 227, 220, 0.1);
+    border-color: rgba(244, 227, 220, 0.7);
+}
+.footer-socials .icon {
+    stroke: var(--color-bg);
+    width: 20px;
+    height: 20px;
+}
+
+/* Column 2 & 3: Navigation & Contact Lists */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
+    gap: var(--spacing-md);
+}
+.footer-column a {
+    color: rgba(244, 227, 220, 0.8);
+}
+.footer-column a:hover {
+    color: var(--color-surface);
+}
+.footer-column-contact li {
+    display: flex;
     align-items: center;
     gap: var(--spacing-md);
-    text-align: center;
+}
+.footer-column-contact .icon {
+    stroke: var(--color-bg);
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0; /* Prevents icons from shrinking */
 }
 
-/* This is the master rule that fixes everything */
-.site-footer a {
-    color: var(--color-bg); /* Sets ALL links, including icons, to the light, visible color */
-    text-decoration: none;
-    transition: color 0.3s ease, opacity 0.3s ease;
+/* Bottom Section with Divider */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgba(244, 227, 220, 0.2);
+    margin: var(--spacing-lg) var(--spacing-lg);
 }
 
-.site-footer a:hover {
-    color: var(--color-accent); /* All links get a beautiful lavender hover */
-    opacity: 1;
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-lg);
 }
-
-/* This is the corrected block for the footer icons */
-.footer-socials a {
-    display: inline-block; /* Keeps it behaving like a block for positioning */
-    transition: transform 0.3s ease; /* The zoom effect on hover */
-}
-
-/* This targets the icon itself */
-.social-icon {
-    width: 32px;
-    height: 32px;
-    stroke: var(--color-bg); /* THE DIRECT FIX: Sets the line color of the SVG to be visible */
-    transition: stroke 0.3s ease; /* Animate the color change */
-}
-
-/* This rule applies the hover effect */
-.footer-socials a:hover .social-icon {
-    stroke: var(--color-accent); /* On hover, changes the line color to lavender */
-    transform: scale(1.1); /* Adds the zoom effect */
-}
-
-.footer-content p {
-    margin: 0;
-    max-width: 600px;
-}
-
-.footer-links {
-    opacity: 0.9;
-}
-
 .footer-tagline {
-    font-style: italic;
-    opacity: 0.8;
-    margin-top: var(--spacing-md);
+    flex-grow: 1; /* Takes up available space */
+}
+.footer-legal {
+    display: flex;
+    gap: var(--spacing-lg);
+    text-align: right;
+    flex-shrink: 0; /* Prevents it from wrapping too early */
 }
 
+.footer-copyright {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding: 0 var(--spacing-lg);
+    opacity: 0.7;
+}
+.footer-copyright p { margin-bottom: 0; }
+
+/* Responsive Footer Styling */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-column-about {
+        grid-column: 1 / -1; /* About column spans full width */
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stacks to a single column */
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-legal {
+        text-align: center;
+    }
+
+    .footer-legal a {
+        color: var(--color-bg) !important; /* FORCE the visible color */
+        opacity: 1 !important; /* FORCE it to be fully opaque */
+        font-weight: 600;
+        text-decoration: underline;
+        text-decoration-color: rgba(244, 227, 220, 0.5);
+        transition: color 0.3s ease;
+    }
+    
+    .footer-legal a:hover {
+        color: var(--color-surface) !important; /* FORCE a bright white hover */
+    }
+}
 /* ---
 Responsive (Mobile-First)
 --- */
@@ -797,4 +1011,28 @@ Animations
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* ---
+Definitive Footer Legal Links Correction
+--- */
+.footer-bottom .footer-legal a {
+    color: #FFFFFF;         /* A solid, bright white */
+    opacity: 0.9;            /* Make it nearly fully opaque */
+    font-weight: 600;        /* Make it slightly bolder */
+    text-decoration: none;   /* Remove the default underline for a cleaner look */
+}
+
+.footer-bottom .footer-legal a:hover {
+    color: var(--color-accent); /* A bright lavender on hover */
+    text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+
+/* --- Modal Button Layout --- */
+.modal-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-lg);
 }
